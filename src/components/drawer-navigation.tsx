@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
 import { menu } from "@/utils/menu";
+import { ActiveLink } from "@/components/active-link";
 
 export function DrawerNavigation() {
   return (
@@ -11,7 +11,7 @@ export function DrawerNavigation() {
       <SheetTrigger asChild>
         <Button variant="outline" size="icon" className="shrink-0 md:hidden">
           <Menu className="size-5" />
-          <span className="sr-only">Toggle navigation menu</span>
+          <span className="sr-only">Alternar menu de navegação</span>
         </Button>
       </SheetTrigger>
 
@@ -20,13 +20,14 @@ export function DrawerNavigation() {
           <Logo variant="minimal" />
 
           {menu.map(({ title, href, icon: Icon }) => (
-            <Link
+            <ActiveLink
+              key={title}
               href={href}
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2"
             >
               <Icon className="size-5" />
               {title}
-            </Link>
+            </ActiveLink>
           ))}
         </nav>
       </SheetContent>

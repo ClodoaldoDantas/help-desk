@@ -1,9 +1,9 @@
 import { Headphones } from "lucide-react";
 import Link from "next/link";
 
-type LogoProps = {
+interface LogoProps {
   variant?: "default" | "minimal";
-};
+}
 
 export function Logo({ variant = "default" }: LogoProps) {
   return variant === "minimal" ? (
