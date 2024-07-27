@@ -1,4 +1,4 @@
-import { EmptyTable } from "@/components/empty-table";
+import { EmptyTable } from '@/components/empty-table'
 
 export default function Dashboard() {
   return (
@@ -9,5 +9,5 @@ export default function Dashboard() {
 
       <EmptyTable />
     </>
-  );
+  )
 }

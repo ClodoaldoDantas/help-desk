@@ -5,5 +5,5 @@ export default function NewTicketPage() {
         <h1 className="text-lg font-semibold md:text-2xl">Novo Chamado</h1>
       </div>
     </>
-  );
+  )
 }

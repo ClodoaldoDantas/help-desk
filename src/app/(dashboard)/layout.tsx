@@ -1,12 +1,12 @@
-import { Logo } from "@/components/logo";
-import { Navigation } from "@/components/navigation";
-import { DrawerNavigation } from "@/components/drawer-navigation";
-import { UserButton, SignedIn } from "@clerk/nextjs";
+import { Logo } from '@/components/logo'
+import { Navigation } from '@/components/navigation'
+import { DrawerNavigation } from '@/components/drawer-navigation'
+import { UserButton, SignedIn } from '@clerk/nextjs'
 
 export default function DashboardLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
@@ -38,5 +38,5 @@ export default function DashboardLayout({
         </main>
       </div>
     </div>
-  );
+  )
 }

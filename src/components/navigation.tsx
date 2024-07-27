@@ -1,5 +1,5 @@
-import { menu } from "@/utils/menu";
-import { ActiveLink } from "@/components/active-link";
+import { menu } from '@/utils/menu'
+import { ActiveLink } from '@/components/active-link'
 
 export function Navigation() {
   return (
@@ -15,5 +15,5 @@ export function Navigation() {
         </ActiveLink>
       ))}
     </nav>
-  );
+  )
 }
