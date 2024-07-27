@@ -2,6 +2,7 @@ import { Logo } from '@/components/logo'
 import { Navigation } from '@/components/navigation'
 import { DrawerNavigation } from '@/components/drawer-navigation'
 import { UserButton, SignedIn } from '@clerk/nextjs'
+import { ModeToggle } from '@/components/mode-toggle'
 
 export default function DashboardLayout({
   children,
@@ -26,7 +27,9 @@ export default function DashboardLayout({
         <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
           <DrawerNavigation />
 
-          <div className="ml-auto">
+          <div className="ml-auto flex items-center gap-3">
+            <ModeToggle />
+
             <SignedIn>
               <UserButton />
             </SignedIn>
