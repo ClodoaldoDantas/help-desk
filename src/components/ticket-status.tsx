@@ -1,10 +1,5 @@
 import { Badge } from '@/components/ui/badge'
-import {
-  CalendarClockIcon,
-  CheckCircleIcon,
-  TicketCheckIcon,
-  TicketIcon,
-} from 'lucide-react'
+import { CalendarClockIcon, CheckCircleIcon } from 'lucide-react'
 
 interface TicketStatusProps {
   status: 'in-progress' | 'completed'

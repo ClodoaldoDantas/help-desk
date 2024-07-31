@@ -1,4 +1,4 @@
-import { menu } from '@/shared/config/menu'
+import { menu } from '@/shared/data/menu'
 import { ActiveLink } from '@/components/active-link'
 
 export function Navigation() {
