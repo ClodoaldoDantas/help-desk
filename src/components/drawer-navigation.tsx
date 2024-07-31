@@ -2,7 +2,7 @@ import { Menu } from 'lucide-react'
 import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 import { Logo } from '@/components/logo'
-import { menu } from '@/utils/menu'
+import { menu } from '@/shared/config/menu'
 import { ActiveLink } from '@/components/active-link'
 
 export function DrawerNavigation() {

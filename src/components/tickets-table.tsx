@@ -1,4 +1,4 @@
-import { Edit2Icon, SearchIcon, TrashIcon } from 'lucide-react'
+import { SearchIcon, XIcon } from 'lucide-react'
 import { Button } from './ui/button'
 import {
   Table,
@@ -79,11 +79,7 @@ export function TicketsTable() {
                 </Button>
 
                 <Button variant="outline" size="icon">
-                  <Edit2Icon size={18} />
-                </Button>
-
-                <Button variant="outline" size="icon">
-                  <TrashIcon size={18} />
+                  <XIcon size={18} />
                 </Button>
               </div>
             </TableCell>
