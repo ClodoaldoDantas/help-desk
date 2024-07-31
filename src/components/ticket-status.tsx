@@ -1,11 +1,8 @@
 import { Badge } from '@/components/ui/badge'
+import { Status } from '@/shared/types/status'
 import { CalendarClockIcon, CheckCircleIcon } from 'lucide-react'
 
-interface TicketStatusProps {
-  status: 'in-progress' | 'completed'
-}
-
-export function TicketStatus({ status }: TicketStatusProps) {
+export function TicketStatus({ status }: { status: Status }) {
   return status === 'in-progress' ? (
     <Badge variant="outline">
       <CalendarClockIcon className="mr-2 size-4" />

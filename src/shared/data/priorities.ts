@@ -1,4 +1,4 @@
-export type Priority = 'lowest' | 'low' | 'medium' | 'high' | 'highest'
+import { Priority } from '../types/priority'
 
 export const priorities: Record<Priority, string> = {
   lowest: 'Muito Baixa',

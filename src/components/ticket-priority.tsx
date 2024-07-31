@@ -1,4 +1,5 @@
-import { Priority, priorities } from '@/shared/data/priorities'
+import { Priority } from '@/shared/types/priority'
+import { priorities } from '@/shared/data/priorities'
 import {
   ChevronDownIcon,
   ChevronUpIcon,
