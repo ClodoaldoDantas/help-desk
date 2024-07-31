@@ -1,14 +1,14 @@
-import { Home, Plus } from "lucide-react";
+import { Home, PlusCircle } from 'lucide-react'
 
 export const menu = [
   {
-    title: "Dashboard",
+    title: 'Dashboard',
     icon: Home,
-    href: "/",
+    href: '/',
   },
   {
-    title: "Novo Chamado",
-    icon: Plus,
-    href: "/tickets/new",
+    title: 'Novo Chamado',
+    icon: PlusCircle,
+    href: '/tickets/new',
   },
-];
+]
