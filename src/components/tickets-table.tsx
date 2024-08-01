@@ -13,6 +13,7 @@ import { TicketPriority } from './ticket-priority'
 import { Ticket } from '@/shared/types/ticket'
 import { Status } from '@/shared/types/status'
 import { Priority } from '@/shared/types/priority'
+import Link from 'next/link'
 
 export function TicketsTable({ tickets }: { tickets: Ticket[] }) {
   return (
@@ -41,12 +42,16 @@ export function TicketsTable({ tickets }: { tickets: Ticket[] }) {
             </TableCell>
             <TableCell>
               <div className="flex items-center gap-2">
-                <Button variant="outline" size="icon">
-                  <SearchIcon size={18} />
+                <Button variant="outline" size="icon" asChild>
+                  <Link href={`/tickets/${ticket.id}`}>
+                    <SearchIcon size={18} />
+                    <span className="sr-only">Detalhes do chamado</span>
+                  </Link>
                 </Button>
 
                 <Button variant="outline" size="icon">
                   <XIcon size={18} />
+                  <span className="sr-only">Excluir chamado</span>
                 </Button>
               </div>
             </TableCell>

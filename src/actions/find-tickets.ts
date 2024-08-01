@@ -6,11 +6,11 @@ export async function findTickets(): Promise<Ticket[]> {
   const { user } = await getUser()
 
   const tickets = await db.ticket.findMany({
-    where: {
-      userId: user!.clerkUserId,
-    },
     orderBy: {
       createdAt: 'desc',
+    },
+    where: {
+      userId: user!.clerkUserId,
     },
   })
 
