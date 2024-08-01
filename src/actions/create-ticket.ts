@@ -3,14 +3,14 @@
 import db from '@/lib/db'
 import { getUser } from './get-user'
 import { Status } from '@/shared/types/status'
+import { redirect } from 'next/navigation'
 
 type CreateTicketResponse = {
-  success: boolean
   message: string | null
 }
 
 export async function createTicket(
-  _: any,
+  prevState: any,
   formData: FormData
 ): Promise<CreateTicketResponse> {
   const assetNumber = formData.get('asset-number')?.toString()
@@ -19,13 +19,13 @@ export async function createTicket(
   const status: Status = 'in-progress'
 
   if (!assetNumber || !priority || !description) {
-    return { success: false, message: 'Todos os campos são obrigatórios.' }
+    return { message: 'Todos os campos são obrigatórios.' }
   }
 
   const { user } = await getUser()
 
   if (!user) {
-    return { success: false, message: 'Usuário não encontrado.' }
+    return { message: 'Usuário não encontrado.' }
   }
 
   try {
@@ -38,10 +38,10 @@ export async function createTicket(
         status,
       },
     })
-
-    return { success: true, message: null }
   } catch (err) {
-    console.log(err)
-    return { success: false, message: 'Erro ao criar chamado.' }
+    console.error(err)
+    return { message: 'Erro ao criar chamado.' }
   }
+
+  redirect('/')
 }

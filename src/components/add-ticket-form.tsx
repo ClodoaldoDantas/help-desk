@@ -21,12 +21,11 @@ import { useFormState } from 'react-dom'
 export function AddTicketForm() {
   const [state, formAction] = useFormState(createTicket, {
     message: null,
-    success: false,
   })
 
   return (
     <form action={formAction}>
-      {!state.success && state.message && (
+      {!!state.message && (
         <p className="text-red-500 text-sm mb-4">{state.message}</p>
       )}
 
