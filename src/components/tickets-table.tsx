@@ -10,46 +10,11 @@ import {
 } from './ui/table'
 import { TicketStatus } from './ticket-status'
 import { TicketPriority } from './ticket-priority'
+import { Ticket } from '@/shared/types/ticket'
+import { Status } from '@/shared/types/status'
+import { Priority } from '@/shared/types/priority'
 
-export function TicketsTable() {
-  const tickets = [
-    {
-      id: 1,
-      patrimony: '256789',
-      status: 'in-progress',
-      priority: 'highest',
-      createdAt: '30/07/2024',
-    },
-    {
-      id: 2,
-      patrimony: '345678',
-      status: 'in-progress',
-      priority: 'high',
-      createdAt: '30/07/2024',
-    },
-    {
-      id: 3,
-      patrimony: '453212',
-      status: 'completed',
-      priority: 'medium',
-      createdAt: '29/07/2024',
-    },
-    {
-      id: 4,
-      patrimony: '234567',
-      status: 'completed',
-      priority: 'low',
-      createdAt: '29/07/2024',
-    },
-    {
-      id: 5,
-      patrimony: '123987',
-      status: 'completed',
-      priority: 'lowest',
-      createdAt: '28/07/2024',
-    },
-  ]
-
+export function TicketsTable({ tickets }: { tickets: Ticket[] }) {
   return (
     <Table>
       <TableHeader>
@@ -64,14 +29,16 @@ export function TicketsTable() {
       <TableBody>
         {tickets.map((ticket) => (
           <TableRow key={ticket.id}>
-            <TableCell className="font-medium">{ticket.patrimony}</TableCell>
+            <TableCell className="font-medium">{ticket.assetNumber}</TableCell>
             <TableCell>
-              <TicketStatus status={ticket.status as any} />
+              <TicketStatus status={ticket.status as Status} />
             </TableCell>
             <TableCell>
-              <TicketPriority priority={ticket.priority as any} />
+              <TicketPriority priority={ticket.priority as Priority} />
             </TableCell>
-            <TableCell>{ticket.createdAt}</TableCell>
+            <TableCell>
+              {ticket.createdAt.toLocaleDateString('pt-BR')}
+            </TableCell>
             <TableCell>
               <div className="flex items-center gap-2">
                 <Button variant="outline" size="icon">

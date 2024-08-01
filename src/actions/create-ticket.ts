@@ -1,9 +1,9 @@
 'use server'
 
 import db from '@/lib/db'
-import { getUser } from './get-user'
 import { Status } from '@/shared/types/status'
 import { redirect } from 'next/navigation'
+import { auth } from '@clerk/nextjs/server'
 
 type CreateTicketResponse = {
   message: string | null
@@ -22,16 +22,16 @@ export async function createTicket(
     return { message: 'Todos os campos são obrigatórios.' }
   }
 
-  const { user } = await getUser()
+  const { userId } = auth()
 
-  if (!user) {
+  if (!userId) {
     return { message: 'Usuário não encontrado.' }
   }
 
   try {
     await db.ticket.create({
       data: {
-        userId: user.clerkUserId,
+        userId,
         assetNumber: Number(assetNumber),
         priority,
         description,
