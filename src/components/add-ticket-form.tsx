@@ -1,6 +1,6 @@
 'use client'
 
-import { Save } from 'lucide-react'
+import { Loader2Icon, LoaderIcon, Save, SaveIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -16,7 +16,7 @@ import {
 import { priorities } from '@/shared/data/priorities'
 import { Priority } from '@/shared/types/priority'
 import { createTicket } from '@/actions/create-ticket'
-import { useFormState } from 'react-dom'
+import { useFormState, useFormStatus } from 'react-dom'
 
 export function AddTicketForm() {
   const [state, formAction] = useFormState(createTicket, {
@@ -67,10 +67,22 @@ export function AddTicketForm() {
         />
       </div>
 
-      <Button type="submit">
-        <Save className="size-5 mr-2" />
-        Salvar Chamado
-      </Button>
+      <SubmitButton />
     </form>
+  )
+}
+
+function SubmitButton() {
+  const { pending } = useFormStatus()
+
+  return (
+    <Button disabled={pending} type="submit">
+      {pending ? (
+        <Loader2Icon className="size-5 mr-2 animate-spin" />
+      ) : (
+        <SaveIcon className="size-5 mr-2" />
+      )}
+      Salvar Chamado
+    </Button>
   )
 }

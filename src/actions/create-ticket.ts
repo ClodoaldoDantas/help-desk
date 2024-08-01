@@ -40,7 +40,7 @@ export async function createTicket(
     })
   } catch (err) {
     console.error(err)
-    return { message: 'Erro ao criar chamado.' }
+    return { message: 'Erro ao criar chamado. Tente novamente mais tarde!' }
   }
 
   redirect('/')
