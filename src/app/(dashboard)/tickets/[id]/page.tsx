@@ -67,6 +67,11 @@ export default async function TicketPage({
           <span className="text-muted-foreground">{ticket.description}</span>
         </li>
 
+        <li className="flex flex-col gap-1">
+          <strong className="text-base">Criado por:</strong>
+          <span className="text-muted-foreground">{ticket.user.email}</span>
+        </li>
+
         {ticket.solution !== null && (
           <li className="flex flex-col gap-1">
             <strong className="text-base">Solução</strong>

@@ -1,5 +1,3 @@
-// import { EmptyTable } from '@/components/empty-table'
-
 import { findTickets } from '@/actions/find-tickets'
 import { TicketsTable } from '@/components/tickets-table'
 
