@@ -4,8 +4,12 @@ import { Button } from '@/components/ui/button'
 import { Logo } from '@/components/logo'
 import { menu } from '@/shared/data/menu'
 import { ActiveLink } from '@/components/active-link'
+import { hasPermission } from '@/shared/permissions'
+import { getUser } from '@/actions/get-user'
 
-export function DrawerNavigation() {
+export async function DrawerNavigation() {
+  const { user } = await getUser()
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -19,16 +23,22 @@ export function DrawerNavigation() {
         <nav className="grid gap-2 text-lg font-medium">
           <Logo variant="minimal" />
 
-          {menu.map(({ title, href, icon: Icon }) => (
-            <ActiveLink
-              key={title}
-              href={href}
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2"
-            >
-              <Icon className="size-5" />
-              {title}
-            </ActiveLink>
-          ))}
+          {menu.map(({ title, href, icon: Icon, permission }) => {
+            if (permission && !hasPermission(user!.role, permission)) {
+              return null
+            }
+
+            return (
+              <ActiveLink
+                key={title}
+                href={href}
+                className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2"
+              >
+                <Icon className="size-5" />
+                {title}
+              </ActiveLink>
+            )
+          })}
         </nav>
       </SheetContent>
     </Sheet>

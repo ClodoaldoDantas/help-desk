@@ -1,4 +1,5 @@
 import { Home, PlusCircle } from 'lucide-react'
+import { Action } from '../permissions'
 
 export const menu = [
   {
@@ -10,5 +11,6 @@ export const menu = [
     title: 'Novo Chamado',
     icon: PlusCircle,
     href: '/tickets/new',
+    permission: Action.CREATE_TICKET,
   },
 ]

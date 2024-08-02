@@ -1,5 +1,5 @@
-import { SearchIcon, XIcon } from 'lucide-react'
-import { Button } from './ui/button'
+import Link from 'next/link'
+import { SearchIcon } from 'lucide-react'
 import {
   Table,
   TableBody,
@@ -7,13 +7,14 @@ import {
   TableHead,
   TableRow,
   TableCell,
-} from './ui/table'
-import { TicketStatus } from './ticket-status'
-import { TicketPriority } from './ticket-priority'
+} from '@/components/ui/table'
+import { Button } from '@/components/ui/button'
+import { TicketStatus } from '@/components/ticket-status'
+import { TicketPriority } from '@/components/ticket-priority'
+import { CancelTicketButton } from '@/components/cancel-ticket-button'
 import { Ticket } from '@/shared/types/ticket'
 import { Status } from '@/shared/types/status'
 import { Priority } from '@/shared/types/priority'
-import Link from 'next/link'
 
 export function TicketsTable({ tickets }: { tickets: Ticket[] }) {
   return (
@@ -49,10 +50,7 @@ export function TicketsTable({ tickets }: { tickets: Ticket[] }) {
                   </Link>
                 </Button>
 
-                <Button variant="outline" size="icon">
-                  <XIcon size={18} />
-                  <span className="sr-only">Excluir chamado</span>
-                </Button>
+                <CancelTicketButton />
               </div>
             </TableCell>
           </TableRow>
