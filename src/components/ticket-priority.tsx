@@ -9,11 +9,11 @@ import {
 } from 'lucide-react'
 
 const icons: Record<Priority, JSX.Element> = {
-  lowest: <ChevronsDownIcon className="mr-2 size-5 text-blue-500" />,
-  low: <ChevronDownIcon className="mr-2 size-5 text-blue-500" />,
-  medium: <EqualIcon className="mr-2 size-5 text-yellow-500" />,
-  high: <ChevronUpIcon className="mr-2 size-5 text-red-500" />,
-  highest: <ChevronsUpIcon className="mr-2 size-5 text-red-500" />,
+  lowest: <ChevronsDownIcon className="size-5 text-blue-500" />,
+  low: <ChevronDownIcon className="size-5 text-blue-500" />,
+  medium: <EqualIcon className="size-5 text-yellow-500" />,
+  high: <ChevronUpIcon className="size-5 text-red-500" />,
+  highest: <ChevronsUpIcon className="size-5 text-red-500" />,
 }
 
 export function TicketPriority({ priority }: { priority: Priority }) {
@@ -21,7 +21,7 @@ export function TicketPriority({ priority }: { priority: Priority }) {
   const icon = icons[priority]
 
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex items-center gap-2">
       {icon}
       <span>{label}</span>
     </div>
