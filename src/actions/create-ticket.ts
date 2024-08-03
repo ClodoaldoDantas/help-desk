@@ -32,7 +32,7 @@ export async function createTicket(
     await db.ticket.create({
       data: {
         userId,
-        assetNumber: Number(assetNumber),
+        assetNumber,
         priority,
         description,
         status,

@@ -1,6 +1,6 @@
 export type Ticket = {
   id: string
-  assetNumber: number
+  assetNumber: string
   description: string
   status: string
   priority: string
