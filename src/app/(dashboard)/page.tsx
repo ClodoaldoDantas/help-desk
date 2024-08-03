@@ -1,9 +1,15 @@
 import { findTickets } from '@/actions/find-tickets'
 import { TicketsTable } from '@/components/tickets-table'
 
-export default async function Dashboard() {
-  const tickets = await findTickets()
+type DashboardProps = {
+  searchParams?: {
+    q?: string
+  }
+}
 
+export default async function Dashboard({ searchParams }: DashboardProps) {
+  const query = searchParams?.q || ''
+  const tickets = await findTickets({ query })
   const isEmpty = tickets.length === 0
 
   return (

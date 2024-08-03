@@ -3,6 +3,7 @@ import { Navigation } from '@/components/navigation'
 import { DrawerNavigation } from '@/components/drawer-navigation'
 import { UserButton, SignedIn } from '@clerk/nextjs'
 import { ModeToggle } from '@/components/mode-toggle'
+import { SearchForm } from '@/components/search-form'
 
 export default function DashboardLayout({
   children,
@@ -24,8 +25,9 @@ export default function DashboardLayout({
       </div>
 
       <div className="flex flex-col">
-        <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+        <header className="flex h-14 items-center gap-2 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
           <DrawerNavigation />
+          <SearchForm />
 
           <div className="ml-auto flex items-center gap-3">
             <ModeToggle />
