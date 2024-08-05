@@ -1,18 +1,10 @@
 import { menu } from '@/shared/data/menu'
 import { ActiveLink } from '@/components/active-link'
-import { hasPermission } from '@/shared/permissions'
-import { getUser } from '@/actions/get-user'
 
-export async function Navigation() {
-  const { user } = await getUser()
-
+export function Navigation() {
   return (
     <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-      {menu.map(({ title, href, icon: Icon, permission }) => {
-        if (permission && !hasPermission(user!.role, permission)) {
-          return null
-        }
-
+      {menu.map(({ title, href, icon: Icon }) => {
         return (
           <ActiveLink
             key={title}
