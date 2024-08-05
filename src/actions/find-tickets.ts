@@ -10,13 +10,12 @@ export async function findTickets({
 }): Promise<Ticket[]> {
   const { user } = await getUser()
 
-  const options: any = {
-    orderBy: {
-      createdAt: 'desc',
-    },
-  }
+  const userCanViewAllTickets = hasPermission(
+    user!.role,
+    Action.VIEW_ALL_TICKETS
+  )
 
-  if (hasPermission(user!.role, Action.VIEW_ALL_TICKETS)) {
+  if (userCanViewAllTickets) {
     const allTickets = db.ticket.findMany({
       orderBy: {
         createdAt: 'asc',

@@ -6,7 +6,9 @@ import { getUser } from '@/actions/get-user'
 export async function CancelTicketButton() {
   const { user } = await getUser()
 
-  if (!hasPermission(user!.role, Action.CANCEL_TICKET)) {
+  const userCanCancelTicket = hasPermission(user!.role, Action.CANCEL_TICKET)
+
+  if (!userCanCancelTicket) {
     return null
   }
 
