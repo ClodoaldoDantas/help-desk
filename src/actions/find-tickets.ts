@@ -18,7 +18,7 @@ export async function findTickets({
   if (userCanViewAllTickets) {
     const allTickets = db.ticket.findMany({
       orderBy: {
-        createdAt: 'asc',
+        createdAt: 'desc',
       },
       where: {
         assetNumber: {
@@ -31,7 +31,7 @@ export async function findTickets({
 
   const userTickets = await db.ticket.findMany({
     orderBy: {
-      createdAt: 'asc',
+      createdAt: 'desc',
     },
     where: {
       userId: user!.clerkUserId,

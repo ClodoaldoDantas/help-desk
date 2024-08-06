@@ -11,7 +11,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { TicketStatus } from '@/components/ticket-status'
 import { TicketPriority } from '@/components/ticket-priority'
-import { CancelTicketButton } from '@/components/cancel-ticket-button'
+import { RemoveTicketButton } from '@/components/remove-ticket-button'
 import { Ticket } from '@/shared/types/ticket'
 import { Status } from '@/shared/types/status'
 import { Priority } from '@/shared/types/priority'
@@ -50,7 +50,7 @@ export function TicketsTable({ tickets }: { tickets: Ticket[] }) {
                   </Link>
                 </Button>
 
-                <CancelTicketButton />
+                <RemoveTicketButton ticketId={ticket.id} />
               </div>
             </TableCell>
           </TableRow>
