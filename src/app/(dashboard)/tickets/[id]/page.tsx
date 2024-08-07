@@ -1,6 +1,9 @@
 import { findTicketById } from '@/actions/find-ticket-by-id'
+import { Can } from '@/components/can'
 import { TicketPriority } from '@/components/ticket-priority'
 import { TicketStatus } from '@/components/ticket-status'
+import { UpdateTicketForm } from '@/components/update-ticket-form'
+import { Action } from '@/shared/permissions'
 import { Priority } from '@/shared/types/priority'
 import { Status } from '@/shared/types/status'
 import { ChevronLeft } from 'lucide-react'
@@ -72,11 +75,15 @@ export default async function TicketPage({
           <span className="text-muted-foreground">{ticket.user.email}</span>
         </li>
 
-        {ticket.solution !== null && (
+        {ticket.solution !== null ? (
           <li className="flex flex-col gap-1">
             <strong className="text-base">Solução</strong>
             <span className="text-muted-foreground">{ticket.solution}</span>
           </li>
+        ) : (
+          <Can action={Action.UPDATE_TICKET}>
+            <UpdateTicketForm ticketId={ticket.id} />
+          </Can>
         )}
       </ul>
     </>
