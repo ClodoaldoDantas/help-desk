@@ -15,6 +15,8 @@ import { RemoveTicketButton } from '@/components/remove-ticket-button'
 import { Ticket } from '@/shared/types/ticket'
 import { Status } from '@/shared/types/status'
 import { Priority } from '@/shared/types/priority'
+import { Can } from './can'
+import { Action } from '@/shared/permissions'
 
 export function TicketsTable({ tickets }: { tickets: Ticket[] }) {
   return (
@@ -50,7 +52,9 @@ export function TicketsTable({ tickets }: { tickets: Ticket[] }) {
                   </Link>
                 </Button>
 
-                <RemoveTicketButton ticketId={ticket.id} />
+                <Can action={Action.REMOVE_TICKET}>
+                  <RemoveTicketButton ticketId={ticket.id} />
+                </Can>
               </div>
             </TableCell>
           </TableRow>
