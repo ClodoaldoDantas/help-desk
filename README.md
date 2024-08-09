@@ -9,6 +9,8 @@
 
 Plataforma para a abertura e resolução de chamados.
 
+![diagrama](./diagram.png)
+
 ## 🚀 Tecnologias
 
 - Next JS (App Router)
@@ -30,6 +32,15 @@ Plataforma para a abertura e resolução de chamados.
 5. Execute o comando `npm install` para instalar as dependências do projeto.
 6. Execute o comando `npm run dev` para iniciar o servidor de desenvolvimento.
 7. Acesse o projeto em seu navegador através do endereço `http://localhost:3000`.
+
+## 🔒 Admin
+
+Para testar como a aplicação funciona quando acessada por um **Administrador**, você pode utilizar o usuário abaixo:
+
+```
+E-mail: admin@admin.com
+Senha: helpdeskadmin
+```
 
 ### 📝 Licença
 Esse projeto está sob a licença MIT.
