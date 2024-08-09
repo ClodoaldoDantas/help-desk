@@ -7,7 +7,7 @@
 
 ### 🎯 Sobre
 
-Plataforma para a abertura e resolução de chamados.
+Plataforma web que permite aos usuários registrar novos chamados e acompanhar o status de suas resoluções de forma intuitiva e eficiente.
 
 ![diagrama](./diagram.png)
 
